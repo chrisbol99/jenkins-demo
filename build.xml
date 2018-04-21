@@ -38,6 +38,9 @@
     <echo file="info.txt" append="true" message="JOB_URL=${env.JOB_URL}${line.separator}" />
     <echo file="info.txt" append="true" message="SVN_REVISION=${env.SVN_REVISION}${line.separator}" />
     <echo file="info.txt" append="true" message="CVS_BRANCH=${env.CVS_BRANCH}${line.separator}" />
+    <echo>os.arch is ${os.arch}</echo>
+    <echo>os.name is ${os.name}</echo>
+    <echo>os.version is ${os.version}</echo>
   </target>
 
   <!-- ======================================================= -->
