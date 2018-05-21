@@ -51,7 +51,7 @@
       <arg value="--get"/>
       <arg value="user.email"/>
     </exec>
-    <property name="build.number.file" value="build.number.${git.user.email}"/>
+    <property name="build.number.file" value="build.number.${git.user.name}"/>
   </target>
 
   <target name="info" depends="flags">
