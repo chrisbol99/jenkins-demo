@@ -1,2 +1,3 @@
-This is a Jenkins demonstration repository that Mark Waite configured.
-You're welcome to use this work freely per the terms of the MIT license.
+# Mile High Agile 2018 Jenkins Demo
+
+Show a Pipeline multiple steps in the Blue Ocean UI.

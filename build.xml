@@ -1,5 +1,29 @@
-<?xml version="1.0"?>
-<project name="Jenkins Demo" default="test" basedir=".">
+<project name="MHA-2018-Red-Team" default="increment" basedir=".">
+
+  <target name="increment" description="Increment build number">
+    <buildnumber/>
+    <git command="commit">
+      <args>
+        <arg value="-m"/>
+        <arg value="[${ant.project.name}] ${user.name} build++, was ${build.number}"/>
+        <arg value="build.number"/>
+      </args>
+    </git>
+  </target>
+
+  <!-- From https://gist.github.com/davejlong/874521 -->
+  <macrodef name="git">
+    <attribute name="command" />
+    <attribute name="dir" default="" />
+    <element name="args" optional="true" />
+    <sequential>
+      <echo message="git @{command}" />
+      <exec executable="git" dir="@{dir}">
+        <arg value="@{command}" />
+        <args/>
+      </exec>
+    </sequential>
+  </macrodef>
 
   <property name="tools.dir" value="${basedir}/tools" />
 
@@ -20,6 +44,11 @@
   </target>
 
   <target name="info" depends="flags">
+    <echo>java is ${java.version}</echo>
+    <echo>user dir is ${user.dir}</echo>
+    <git command="branch" />
+    <!-- Mile High Agile 2018 demonstration based on
+         https://jenkins.io/blog/2018/05/16/pipelines-with-git-tags/ -->
     <tstamp prefix="start" />
     <echo file="info.txt" append="true" message="${line.separator}" />
     <echo file="info.txt" append="true" message="${start.TODAY} ${start.DSTAMP} ${start.TSTAMP}${line.separator}" />
