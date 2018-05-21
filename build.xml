@@ -1,11 +1,11 @@
 <project name="MHA-2018-Red-Team" default="increment" basedir=".">
 
-  <target name="increment" description="Increment build number">
+  <target name="increment" description="Increment build number" depends="flags">
     <buildnumber/>
     <git command="commit">
       <args>
         <arg value="-m"/>
-        <arg value="[${ant.project.name}] ${user.name} build++, was ${build.number}"/>
+        <arg value="${git.user.name} build++, was ${build.number}"/>
         <arg value="build.number"/>
       </args>
     </git>
@@ -41,6 +41,16 @@
         <equals arg1="${env.JOB_NAME}" arg2="jenkins-not-running"/>
       </not>
     </condition>
+    <exec executable="git" outputproperty="git.user.name">
+      <arg value="config"/>
+      <arg value="--get"/>
+      <arg value="user.name"/>
+    </exec>
+    <exec executable="git" outputproperty="git.user.email">
+      <arg value="config"/>
+      <arg value="--get"/>
+      <arg value="user.email"/>
+    </exec>
   </target>
 
   <target name="info" depends="flags">
