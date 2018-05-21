@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="Hudson Swarm" default="test" basedir=".">
+<project name="Jenkins Demo" default="test" basedir=".">
 
   <property name="tools.dir" value="${basedir}/tools" />
 
