@@ -13,9 +13,11 @@ check:  program
 	echo
 	echo Checking program
 	./program | grep Hello.World
+	ant test
 
 program: program.c
 	cc -o program program.c
+	ant test
 
 clean:
 	git clean -xffd
