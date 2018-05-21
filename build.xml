@@ -4,9 +4,13 @@
     <buildnumber file="${build.number.file}"/>
     <git command="commit">
       <args>
+        <arg value="${build.number.file}"/>
+      </args>
+    </git>
+    <git command="commit">
+      <args>
         <arg value="-m"/>
         <arg value="${git.user.name} build++, was ${build.number}"/>
-        <arg value="${build.number.file}"/>
       </args>
     </git>
   </target>
@@ -51,7 +55,14 @@
       <arg value="--get"/>
       <arg value="user.email"/>
     </exec>
+    <exec executable="git" outputproperty="git.branches">
+      <arg value="branch"/>
+    </exec>
+    <condition property="build.number.file" value="build.number">
+      <contains string="${git.branches}" substring="* MHA-Red-Team"/>
+    </condition>
     <property name="build.number.file" value="build.number.${git.user.name}"/>
+    <echo>build number file is ${build.number.file}</echo>
   </target>
 
   <target name="info" depends="flags">
