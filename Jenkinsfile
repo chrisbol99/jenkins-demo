@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat 'make test'
+                bat 'ant test'
             }
         }
         stage('Deploy') {
