@@ -41,6 +41,7 @@
     <echo>os.arch is ${os.arch}</echo>
     <echo>os.name is ${os.name}</echo>
     <echo>os.version is ${os.version}</echo>
+    <echo>ant.java.version is ${ant.java.version}</echo>
   </target>
 
   <!-- ======================================================= -->
