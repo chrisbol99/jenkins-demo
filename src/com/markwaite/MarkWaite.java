@@ -2,7 +2,7 @@ package com.markwaite;
 
 public class MarkWaite {
     public final String getName() {
-        return "Mark Waite";
+        return "Mark E. Waite";
     }
 
     public final String getBlogURL() {
@@ -17,4 +17,3 @@ public class MarkWaite {
         MarkWaite me = new MarkWaite();
         System.out.println("Hello from " + me.getName() + " who blogs at " + me.getBlogURL());
     }
-}
